@@ -86,6 +86,9 @@ public class Software extends javax.swing.JFrame {
         btnagregarusuarios.setEnabled(false);
         jTableUsuarios.setEnabled(false);
         btneliminaru.setEnabled(false);
+        btnGestionarClientes.setEnabled(false);
+        btnGestionarProvee.setEnabled(false);
+        btnGestionarProductos.setEnabled(false);
 
         //AGRENDO INFO DEL USUARIO:
         lblRol.setText("Cajero001");
@@ -918,17 +921,15 @@ public class Software extends javax.swing.JFrame {
 
         //Obteneiendo datos de usuario para pasarlo al parametro;
         String usuarioRecuperado = lblRol.getText();
-   
 
         //Obteniendo la fecha actual de carga;
         String fecha_Recuperada = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
         String x = String.valueOf(ComboBoxCliente.getSelectedItem());
 
-
         System.out.println(fecha_Recuperada);
 
         venta.AgregarTablaVentas(txtcant, jTableProducto, jTableSubtotal, txttotal, usuarioRecuperado, fecha_Recuperada, x);
-;
+        ;
 
 
     }//GEN-LAST:event_btncomprarActionPerformed
