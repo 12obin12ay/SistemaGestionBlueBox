@@ -45,39 +45,24 @@ public class Software extends javax.swing.JFrame {
         venta.CebecerasubTotalVenta(jTableSubtotal);
 
         createColumns();
-        
-        
-        
+
         //Para filtrar combobox ;
         AutoCompleteDecorator.decorate(ComboBoxCliente);
-        
-        
-      PoblarComboBoxCliente();
+
+        PoblarComboBoxCliente();
 
     }
-  
-  
 
-    
-    
-    
-    
-    
-    
-    
     private void createColumns() {
         dm = (DefaultTableModel) jTableProducto.getModel();
 
     }
-    
-    
-     
+
     private void PoblarComboBoxCliente() {
-    String[]data = {"Seleccionar","NN","74869573","74869512","7869789","47464090","47423090","86464090","8646735","8646135","8136200"};
-    DefaultComboBoxModel dm = new DefaultComboBoxModel(data);
-    ComboBoxCliente.setModel(dm);
+        String[] data = {"Seleccionar", "NN", "74869573", "74869512", "7869789", "47464090", "47423090", "86464090", "8646735", "8646135", "8136200"};
+        DefaultComboBoxModel dm = new DefaultComboBoxModel(data);
+        ComboBoxCliente.setModel(dm);
     }
-    
 
     //Add Rows
     private void Populate(String name, String pos, String team) {
@@ -792,9 +777,8 @@ public class Software extends javax.swing.JFrame {
                                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(txteliminarp, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(btnExportarCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(ComboBoxCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 14, Short.MAX_VALUE))))
+                                        .addGap(0, 66, Short.MAX_VALUE))))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -826,7 +810,10 @@ public class Software extends javax.swing.JFrame {
                                                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(jPanel3Layout.createSequentialGroup()
                                                 .addGap(34, 34, 34)
-                                                .addComponent(txteliminars, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                .addComponent(txteliminars, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addGap(27, 27, 27)
+                                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -878,9 +865,9 @@ public class Software extends javax.swing.JFrame {
                                 .addComponent(btnExportarCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ComboBoxCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txteliminars, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnExportarSubTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -931,13 +918,17 @@ public class Software extends javax.swing.JFrame {
 
         //Obteneiendo datos de usuario para pasarlo al parametro;
         String usuarioRecuperado = lblRol.getText();
+   
 
         //Obteniendo la fecha actual de carga;
         String fecha_Recuperada = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
+        String x = String.valueOf(ComboBoxCliente.getSelectedItem());
+
 
         System.out.println(fecha_Recuperada);
 
-        venta.AgregarTablaVentas(txtcant, jTableProducto, jTableSubtotal, txttotal, usuarioRecuperado, fecha_Recuperada);
+        venta.AgregarTablaVentas(txtcant, jTableProducto, jTableSubtotal, txttotal, usuarioRecuperado, fecha_Recuperada, x);
+;
 
 
     }//GEN-LAST:event_btncomprarActionPerformed
@@ -1183,11 +1174,11 @@ public class Software extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBuscarUsuarioKeyTyped
 
     private void txtBuscarUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarUsuarioKeyReleased
-       
+
         Usuarios x = new Usuarios();
         x.Filtrar();
-        
-   
+
+
     }//GEN-LAST:event_txtBuscarUsuarioKeyReleased
 
     private void txtBuscarUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarUsuarioKeyPressed
@@ -1196,18 +1187,18 @@ public class Software extends javax.swing.JFrame {
 
     private void btnGestionarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarProductosActionPerformed
         // TODO add your handling code here:
-        
-         Gestion_productos gestion_productos = new Gestion_productos();
+
+        Gestion_productos gestion_productos = new Gestion_productos();
 
         gestion_productos.setVisible(true);
 
         close();
-        
+
     }//GEN-LAST:event_btnGestionarProductosActionPerformed
 
     private void btncerrarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncerrarsesionActionPerformed
         // TODO add your handling code here:
-         System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_btncerrarsesionActionPerformed
 
     /**
@@ -1308,6 +1299,4 @@ public class Software extends javax.swing.JFrame {
     private javax.swing.JTextField txttotal;
     // End of variables declaration//GEN-END:variables
 
-    
-       
 }

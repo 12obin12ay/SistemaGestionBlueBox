@@ -6,6 +6,7 @@
 package SISTEMA_VENTAS;
 
 import java.util.ArrayList;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -80,7 +81,7 @@ public class Ventas {
         return this.subtotalventas;
     }
 
-    public void AgregarTablaVentas(JTextField cantidad, JTable tablaProductos, JTable tablaVentas, JTextField total, String datos_Usuario, String fecha) {
+    public void AgregarTablaVentas(JTextField cantidad, JTable tablaProductos, JTable tablaVentas, JTextField total, String datos_Usuario, String fecha, String Cliente) {
 
         if (cantidad.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Por favor ingresa la Cantida a comprar");
@@ -93,6 +94,7 @@ public class Ventas {
                         ,this.CalcularSubtotalVenta(cantidad, tablaProductos)
                         ,datos_Usuario
                         ,fecha
+                        ,Cliente
                 
                 
                 }
